@@ -1,0 +1,44 @@
+{
+    "games": [
+        {
+            "id": "deci-twelve",
+            "title": "Deci Twelve",
+            "description": "戦略的なパズルゲーム",
+            "fullDescription": "ターン制の戦略パズルゲームです。キャラクターを配置し、敵を倒してステージをクリアしていきます。",
+            "thumbnail": "images/games/deci-twelve/screenshot1.png",
+            "screenshots": [
+                "images/games/deci-twelve/screenshot1.png"
+            ],
+            "engine": "Unity",
+            "genre": "パズル / ストラテジー",
+            "status": "開発中",
+            "links": {
+                "steam": "",
+                "unityroom": "",
+                "itchio": "",
+                "googleplay": "",
+                "youtube": ""
+            }
+        },
+        {
+            "id": "mahobutsu",
+            "title": "魔法少女が物理で殴って何が悪い！！",
+            "description": "魔法少女アクションゲーム",
+            "fullDescription": "魔法少女が物理攻撃で戦うアクションゲームです。",
+            "thumbnail": "images/games/mahobutsu/screenshot1.png",
+            "screenshots": [
+                "images/games/mahobutsu/screenshot1.png"
+            ],
+            "engine": "Unity",
+            "genre": "アクション",
+            "status": "開発中",
+            "links": {
+                "steam": "",
+                "unityroom": "",
+                "itchio": "",
+                "googleplay": "",
+                "youtube": ""
+            }
+        }
+    ]
+}
