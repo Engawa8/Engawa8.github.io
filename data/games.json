@@ -11,7 +11,7 @@
             ],
             "engine": "Unity",
             "genre": "パズル / ストラテジー",
-            "status": "開発中",
+            "status": "リリース済み",
             "links": {
                 "steam": "",
                 "unityroom": "",
@@ -31,6 +31,26 @@
             ],
             "engine": "Unity",
             "genre": "アクション",
+            "status": "リリース済み",
+            "links": {
+                "steam": "",
+                "unityroom": "",
+                "itchio": "",
+                "googleplay": "",
+                "youtube": ""
+            }
+        },
+        {
+            "id": "error-eclipse",
+            "title": "Error Eclipse",
+            "description": "簡単操作で爽快コンボが楽しめるドット絵2Dアクション",
+            "fullDescription": "ドット絵で描かれた2Dアクションゲームです。簡単操作による爽快なコンボアクションが最大の魅力。直感的な操作で誰でも気持ちいいコンボを繋げることができます。",
+            "thumbnail": "images/games/error-eclipse/screenshot1.jpg",
+            "screenshots": [
+                "images/games/error-eclipse/screenshot1.jpg"
+            ],
+            "engine": "Unity",
+            "genre": "2Dアクション",
             "status": "開発中",
             "links": {
                 "steam": "",
@@ -42,3 +62,4 @@
         }
     ]
 }
+
