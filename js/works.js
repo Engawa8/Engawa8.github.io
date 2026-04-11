@@ -8,6 +8,13 @@ const Works = (function () {
     let currentSlideIndex = 0;
     let currentGameData = null;
 
+    // SVG icons
+    const ICONS = {
+        x: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
+        youtube: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`,
+        unityroom: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.25L20.25 7.5v9L12 21.75 3.75 16.5v-9L12 2.25zM12 6L6 9.5v5L12 18l6-3.5v-5L12 6z"/></svg>`
+    };
+
     // Load games data from JSON
     async function loadGames() {
         try {
@@ -17,12 +24,31 @@ const Works = (function () {
             renderGames();
         } catch (error) {
             console.error('Failed to load games data:', error);
-            // Show fallback message
             const grid = document.getElementById('games-grid');
             if (grid) {
                 grid.innerHTML = '<p style="text-align: center; color: var(--color-text-muted);">作品を読み込み中...</p>';
             }
         }
+    }
+
+    // Build card social links HTML (only show icons that have URLs)
+    function buildCardLinks(links) {
+        if (!links) return '';
+
+        const items = [];
+        if (links.x) {
+            items.push(`<a href="${links.x}" target="_blank" rel="noopener noreferrer" class="game-card-social-link" aria-label="X (Twitter)" onclick="event.stopPropagation();">${ICONS.x}</a>`);
+        }
+        if (links.youtube) {
+            items.push(`<a href="${links.youtube}" target="_blank" rel="noopener noreferrer" class="game-card-social-link" aria-label="YouTube" onclick="event.stopPropagation();">${ICONS.youtube}</a>`);
+        }
+        if (links.unityroom) {
+            items.push(`<a href="${links.unityroom}" target="_blank" rel="noopener noreferrer" class="game-card-social-link" aria-label="UnityRoom" onclick="event.stopPropagation();">${ICONS.unityroom}</a>`);
+        }
+
+        if (items.length === 0) return '';
+
+        return `<div class="game-card-social">${items.join('')}</div>`;
     }
 
     // Render games grid
@@ -40,17 +66,21 @@ const Works = (function () {
                 </div>
                 <div class="game-card-content">
                     <h3 class="game-card-title">${game.title}</h3>
+                    ${game.period ? `<div class="game-card-period">${game.period}</div>` : ''}
                     <div class="game-card-meta">
                         <span class="game-card-tag">${game.engine}</span>
                         <span class="game-card-status">${game.status}</span>
                     </div>
+                    ${buildCardLinks(game.links)}
                 </div>
             </article>
         `).join('');
 
-        // Add click handlers
+        // Add click handlers (but not on social links)
         grid.querySelectorAll('.game-card').forEach(card => {
-            card.addEventListener('click', () => {
+            card.addEventListener('click', (e) => {
+                // Don't open modal if a social link was clicked
+                if (e.target.closest('.game-card-social-link')) return;
                 const index = parseInt(card.dataset.gameIndex);
                 openModal(gamesData[index]);
             });
@@ -85,7 +115,7 @@ const Works = (function () {
         description.textContent = game.fullDescription || game.description;
 
         // Set meta info
-        meta.innerHTML = `
+        let metaHTML = `
             <div class="modal-meta-item">
                 <span class="modal-meta-label">エンジン</span>
                 <span class="modal-meta-value">${game.engine}</span>
@@ -99,29 +129,36 @@ const Works = (function () {
                 <span class="modal-meta-value">${game.status}</span>
             </div>
         `;
+        if (game.period) {
+            metaHTML += `
+            <div class="modal-meta-item">
+                <span class="modal-meta-label">開発期間</span>
+                <span class="modal-meta-value">${game.period}</span>
+            </div>
+            `;
+        }
+        meta.innerHTML = metaHTML;
 
         // Set links
         const linkButtons = [];
         if (game.links) {
-            if (game.links.steam) {
-                linkButtons.push(`<a href="${game.links.steam}" target="_blank" rel="noopener noreferrer" class="modal-link">Steam</a>`);
+            if (game.links.x) {
+                linkButtons.push(`<a href="${game.links.x}" target="_blank" rel="noopener noreferrer" class="modal-link secondary">${ICONS.x} X</a>`);
+            }
+            if (game.links.youtube) {
+                linkButtons.push(`<a href="${game.links.youtube}" target="_blank" rel="noopener noreferrer" class="modal-link secondary">${ICONS.youtube} YouTube</a>`);
             }
             if (game.links.unityroom) {
-                linkButtons.push(`<a href="${game.links.unityroom}" target="_blank" rel="noopener noreferrer" class="modal-link">UnityRoom</a>`);
+                linkButtons.push(`<a href="${game.links.unityroom}" target="_blank" rel="noopener noreferrer" class="modal-link">${ICONS.unityroom} UnityRoom</a>`);
+            }
+            if (game.links.steam) {
+                linkButtons.push(`<a href="${game.links.steam}" target="_blank" rel="noopener noreferrer" class="modal-link">Steam</a>`);
             }
             if (game.links.itchio) {
                 linkButtons.push(`<a href="${game.links.itchio}" target="_blank" rel="noopener noreferrer" class="modal-link">itch.io</a>`);
             }
             if (game.links.googleplay) {
                 linkButtons.push(`<a href="${game.links.googleplay}" target="_blank" rel="noopener noreferrer" class="modal-link">Google Play</a>`);
-            }
-            if (game.links.youtube) {
-                linkButtons.push(`<a href="${game.links.youtube}" target="_blank" rel="noopener noreferrer" class="modal-link secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                    YouTube
-                </a>`);
             }
         }
         links.innerHTML = linkButtons.join('');

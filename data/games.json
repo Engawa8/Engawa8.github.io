@@ -1,6 +1,28 @@
 {
     "games": [
         {
+            "id": "error-eclipse",
+            "title": "Error Eclipse",
+            "description": "簡単操作で爽快コンボが楽しめるドット絵2Dアクション",
+            "fullDescription": "ドット絵で描かれた2Dアクションゲームです。簡単操作による爽快なコンボアクションが最大の魅力。直感的な操作で誰でも気持ちいいコンボを繋げることができます。",
+            "thumbnail": "images/games/error-eclipse/screenshot1.jpg",
+            "screenshots": [
+                "images/games/error-eclipse/screenshot1.jpg"
+            ],
+            "engine": "Unity",
+            "genre": "2Dアクション",
+            "status": "開発中",
+            "period": "2023.4 - ",
+            "links": {
+                "x": "",
+                "youtube": "",
+                "unityroom": "",
+                "steam": "",
+                "itchio": "",
+                "googleplay": ""
+            }
+        },
+        {
             "id": "deci-twelve",
             "title": "Deci Twelve",
             "description": "戦略的なパズルゲーム",
@@ -12,12 +34,14 @@
             "engine": "Unity",
             "genre": "パズル / ストラテジー",
             "status": "リリース済み",
+            "period": "2024.9 - 2026.3",
             "links": {
+                "x": "https://x.com/DeciTwelve",
+                "youtube": "https://youtu.be/eDZ4s24AGqE?si=v2o4VeJQ8MOQCGex",
+                "unityroom": "https://unityroom.com/games/decitwelve",
                 "steam": "",
-                "unityroom": "",
                 "itchio": "",
-                "googleplay": "",
-                "youtube": ""
+                "googleplay": ""
             }
         },
         {
@@ -32,34 +56,15 @@
             "engine": "Unity",
             "genre": "アクション",
             "status": "リリース済み",
+            "period": "2021.8 - 2022.3",
             "links": {
+                "x": "",
+                "youtube": "https://www.youtube.com/watch?v=LEnZvr2bGs8",
+                "unityroom": "https://unityroom.com/games/physicgirl",
                 "steam": "",
-                "unityroom": "",
                 "itchio": "",
-                "googleplay": "",
-                "youtube": ""
-            }
-        },
-        {
-            "id": "error-eclipse",
-            "title": "Error Eclipse",
-            "description": "簡単操作で爽快コンボが楽しめるドット絵2Dアクション",
-            "fullDescription": "ドット絵で描かれた2Dアクションゲームです。簡単操作による爽快なコンボアクションが最大の魅力。直感的な操作で誰でも気持ちいいコンボを繋げることができます。",
-            "thumbnail": "images/games/error-eclipse/screenshot1.jpg",
-            "screenshots": [
-                "images/games/error-eclipse/screenshot1.jpg"
-            ],
-            "engine": "Unity",
-            "genre": "2Dアクション",
-            "status": "開発中",
-            "links": {
-                "steam": "",
-                "unityroom": "",
-                "itchio": "",
-                "googleplay": "",
-                "youtube": ""
+                "googleplay": ""
             }
         }
     ]
 }
-
