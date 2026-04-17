@@ -4,14 +4,18 @@
             "id": "error-eclipse",
             "title": "Error Eclipse",
             "description": "簡単操作で爽快コンボが楽しめるドット絵2Dアクション",
+            "description_en": "A pixel art 2D action game with satisfying combos and simple controls",
             "fullDescription": "ドット絵で描かれた2Dアクションゲームです。簡単操作による爽快なコンボアクションが最大の魅力。直感的な操作で誰でも気持ちいいコンボを繋げることができます。",
+            "fullDescription_en": "A 2D action game drawn in pixel art. The greatest appeal is the satisfying combo action with simple controls. Anyone can chain exciting combos with intuitive controls.",
             "thumbnail": "images/games/error-eclipse/screenshot1.jpg",
             "screenshots": [
                 "images/games/error-eclipse/screenshot1.jpg"
             ],
             "engine": "Unity",
             "genre": "2Dアクション",
+            "genre_en": "2D Action",
             "status": "開発中",
+            "status_en": "In Development",
             "period": "2023.4 - ",
             "links": {
                 "x": "",
@@ -26,14 +30,21 @@
             "id": "deci-twelve",
             "title": "Deci Twelve",
             "description": "戦略的なパズルゲーム",
+            "description_en": "A strategic puzzle game",
             "fullDescription": "ターン制の戦略パズルゲームです。キャラクターを配置し、敵を倒してステージをクリアしていきます。",
+            "fullDescription_en": "A turn-based strategic puzzle game. Place characters, defeat enemies, and clear stages.",
             "thumbnail": "images/games/deci-twelve/screenshot1.png",
             "screenshots": [
-                "images/games/deci-twelve/screenshot1.png"
+                "images/games/deci-twelve/screenshot1.png",
+                "images/games/deci-twelve/screenshot2.png",
+                "images/games/deci-twelve/screenshot3.png",
+                "images/games/deci-twelve/flyer_back.png"
             ],
             "engine": "Unity",
             "genre": "パズル / ストラテジー",
+            "genre_en": "Puzzle / Strategy",
             "status": "リリース済み",
+            "status_en": "Released",
             "period": "2024.9 - 2026.3",
             "links": {
                 "x": "https://x.com/DeciTwelve",
@@ -47,15 +58,20 @@
         {
             "id": "mahobutsu",
             "title": "魔法少女が物理で殴って何が悪い！！",
+            "title_en": "What's Wrong with a Magical Girl Using Physical Attacks!!",
             "description": "魔法少女アクションゲーム",
+            "description_en": "A magical girl action game",
             "fullDescription": "魔法少女が物理攻撃で戦うアクションゲームです。",
+            "fullDescription_en": "An action game where a magical girl fights with physical attacks.",
             "thumbnail": "images/games/mahobutsu/screenshot1.png",
             "screenshots": [
                 "images/games/mahobutsu/screenshot1.png"
             ],
             "engine": "Unity",
             "genre": "アクション",
+            "genre_en": "Action",
             "status": "リリース済み",
+            "status_en": "Released",
             "period": "2021.8 - 2022.3",
             "links": {
                 "x": "",

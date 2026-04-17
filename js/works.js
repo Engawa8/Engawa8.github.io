@@ -1,6 +1,7 @@
 /**
  * Works/Games Module
  * Handles loading and displaying game works from JSON
+ * Supports i18n via I18n module
  */
 
 const Works = (function () {
@@ -26,7 +27,7 @@ const Works = (function () {
             console.error('Failed to load games data:', error);
             const grid = document.getElementById('games-grid');
             if (grid) {
-                grid.innerHTML = '<p style="text-align: center; color: var(--color-text-muted);">作品を読み込み中...</p>';
+                grid.innerHTML = `<p style="text-align: center; color: var(--color-text-muted);">${I18n.t('games.loading')}</p>`;
             }
         }
     }
@@ -56,25 +57,30 @@ const Works = (function () {
         const grid = document.getElementById('games-grid');
         if (!grid) return;
 
-        grid.innerHTML = gamesData.map((game, index) => `
+        grid.innerHTML = gamesData.map((game, index) => {
+            const title = I18n.localizeField(game, 'title');
+            const status = I18n.localizeField(game, 'status');
+            const genre = I18n.localizeField(game, 'genre');
+
+            return `
             <article class="game-card" data-game-index="${index}">
                 <div class="game-card-image">
-                    <img src="${game.thumbnail}" alt="${game.title}" loading="lazy">
+                    <img src="${game.thumbnail}" alt="${title}" loading="lazy">
                     <div class="game-card-overlay">
-                        <span>詳細を見る</span>
+                        <span>${I18n.t('games.viewDetail')}</span>
                     </div>
                 </div>
                 <div class="game-card-content">
-                    <h3 class="game-card-title">${game.title}</h3>
+                    <h3 class="game-card-title">${title}</h3>
                     ${game.period ? `<div class="game-card-period">${game.period}</div>` : ''}
                     <div class="game-card-meta">
                         <span class="game-card-tag">${game.engine}</span>
-                        <span class="game-card-status">${game.status}</span>
+                        <span class="game-card-status">${status}</span>
                     </div>
                     ${buildCardLinks(game.links)}
                 </div>
             </article>
-        `).join('');
+        `}).join('');
 
         // Add click handlers (but not on social links)
         grid.querySelectorAll('.game-card').forEach(card => {
@@ -105,34 +111,34 @@ const Works = (function () {
             : [game.thumbnail];
 
         slider.innerHTML = screenshots.map(src =>
-            `<img src="${src}" alt="${game.title} screenshot" loading="lazy">`
+            `<img src="${src}" alt="${I18n.localizeField(game, 'title')} screenshot" loading="lazy">`
         ).join('');
 
         updateSlider();
 
         // Set title and description
-        title.textContent = game.title;
-        description.textContent = game.fullDescription || game.description;
+        title.textContent = I18n.localizeField(game, 'title');
+        description.textContent = I18n.localizeField(game, 'fullDescription') || I18n.localizeField(game, 'description');
 
         // Set meta info
         let metaHTML = `
             <div class="modal-meta-item">
-                <span class="modal-meta-label">エンジン</span>
+                <span class="modal-meta-label">${I18n.t('modal.engine')}</span>
                 <span class="modal-meta-value">${game.engine}</span>
             </div>
             <div class="modal-meta-item">
-                <span class="modal-meta-label">ジャンル</span>
-                <span class="modal-meta-value">${game.genre}</span>
+                <span class="modal-meta-label">${I18n.t('modal.genre')}</span>
+                <span class="modal-meta-value">${I18n.localizeField(game, 'genre')}</span>
             </div>
             <div class="modal-meta-item">
-                <span class="modal-meta-label">状態</span>
-                <span class="modal-meta-value">${game.status}</span>
+                <span class="modal-meta-label">${I18n.t('modal.status')}</span>
+                <span class="modal-meta-value">${I18n.localizeField(game, 'status')}</span>
             </div>
         `;
         if (game.period) {
             metaHTML += `
             <div class="modal-meta-item">
-                <span class="modal-meta-label">開発期間</span>
+                <span class="modal-meta-label">${I18n.t('modal.period')}</span>
                 <span class="modal-meta-value">${game.period}</span>
             </div>
             `;
@@ -223,6 +229,11 @@ const Works = (function () {
             if (e.key === 'Escape') closeModal();
             if (e.key === 'ArrowLeft') prevSlide();
             if (e.key === 'ArrowRight') nextSlide();
+        });
+
+        // Re-render on language change
+        document.addEventListener('langChanged', () => {
+            renderGames();
         });
     }
 
