@@ -7,6 +7,30 @@
             "thumbnail": "images/illustrations/megaman.jpg",
             "category": "ファンアート",
             "date": "2024-01"
+        },
+        {
+            "id": "deci9",
+            "title": "Deci9",
+            "image": "images/illustrations/Deci9.png",
+            "thumbnail": "images/illustrations/Deci9.png",
+            "category": "オリジナル",
+            "date": "2026-05-19"
+        },
+        {
+            "id": "decitwelveillust1",
+            "title": "DeciTwelveillust1",
+            "image": "images/illustrations/DeciTwelveillust1.png",
+            "thumbnail": "images/illustrations/DeciTwelveillust1.png",
+            "category": "オリジナル",
+            "date": "2026-05-19"
+        },
+        {
+            "id": "decitwelveillust2",
+            "title": "DeciTwelveillust2",
+            "image": "images/illustrations/DeciTwelveillust2.jpg",
+            "thumbnail": "images/illustrations/DeciTwelveillust2.jpg",
+            "category": "オリジナル",
+            "date": "2026-05-19"
         }
     ]
 }
