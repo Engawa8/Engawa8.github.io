@@ -19,7 +19,6 @@ const I18n = (function () {
             // About
             'about.title': 'About',
             'about.intro': '個人でゲーム開発を行っているインディーゲーム開発者です。\nUnityやUnreal Engineを使用してゲーム制作を行っています。',
-            'about.skills': 'Skills',
             'about.tools': 'Tools',
             // Games
             'games.title': 'Games',
@@ -49,7 +48,6 @@ const I18n = (function () {
             // About
             'about.title': 'About',
             'about.intro': 'An indie game developer creating games independently.\nDeveloping games using Unity and Unreal Engine.',
-            'about.skills': 'Skills',
             'about.tools': 'Tools',
             // Games
             'games.title': 'Games',
