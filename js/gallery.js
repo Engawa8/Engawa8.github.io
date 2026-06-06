@@ -13,6 +13,12 @@ const Gallery = (function () {
             const response = await fetch('data/illustrations.json');
             const data = await response.json();
             illustrationsData = data.illustrations || [];
+            // Sort by date descending (newest first)
+            illustrationsData.sort((a, b) => {
+                const dateA = new Date(a.date || 0);
+                const dateB = new Date(b.date || 0);
+                return dateB - dateA;
+            });
             renderGallery();
         } catch (error) {
             console.error('Failed to load illustrations data:', error);
