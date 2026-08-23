@@ -8,6 +8,7 @@
             "fullDescription": "ドット絵で描かれた2Dアクションゲームです。簡単操作による爽快なコンボアクションが最大の魅力。直感的な操作で誰でも気持ちいいコンボを繋げることができます。",
             "fullDescription_en": "A 2D action game drawn in pixel art. The greatest appeal is the satisfying combo action with simple controls. Anyone can chain exciting combos with intuitive controls.",
             "thumbnail": "images/games/error-eclipse/screenshot1.jpg",
+            "video": "images/games/error-eclipse/Thumbnail_ErrorEclipse.mp4",
             "screenshots": [
                 "images/games/error-eclipse/screenshot1.jpg"
             ],
@@ -34,6 +35,7 @@
             "fullDescription": "ターン制の戦略パズルゲームです。キャラクターを配置し、敵を倒してステージをクリアしていきます。",
             "fullDescription_en": "A turn-based strategic puzzle game. Place characters, defeat enemies, and clear stages.",
             "thumbnail": "images/games/deci-twelve/screenshot1.png",
+            "video": "images/games/deci-twelve/Thumbnail_DeciTwelve.mp4",
             "screenshots": [
                 "images/games/deci-twelve/screenshot1.png",
                 "images/games/deci-twelve/screenshot2.png",
@@ -64,6 +66,7 @@
             "fullDescription": "魔法少女が物理攻撃で戦うアクションゲームです。",
             "fullDescription_en": "An action game where a magical girl fights with physical attacks.",
             "thumbnail": "images/games/mahobutsu/screenshot1.png",
+            "video": "images/games/mahobutsu/Thumbnail_DeciTwelve.mp4",
             "screenshots": [
                 "images/games/mahobutsu/screenshot1.png"
             ],

@@ -33,9 +33,9 @@
         <div class="nav-container">
             <a href="#hero" class="nav-logo">Engawa//</a>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
                 <li><a href="#games" class="nav-link" data-i18n="nav.games">Games</a></li>
                 <li><a href="#illustrations" class="nav-link" data-i18n="nav.illustrations">Illustrations</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
                 <button class="lang-toggle" id="lang-toggle" aria-label="言語切り替え">EN</button>
@@ -66,7 +66,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg" id="hero-bg"></div>
         <div class="hero-content">
             <div class="hero-icon-wrapper">
                 <img src="images/icon.jpg" alt="Engawa// アイコン" class="hero-icon">
@@ -90,37 +90,11 @@
                     </svg>
                 </a>
             </div>
-            <a href="#about" class="scroll-indicator" aria-label="下へスクロール">
+            <a href="#games" class="scroll-indicator" aria-label="下へスクロール">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
             </a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <h2 class="section-title" data-i18n="about.title">About</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-intro" data-i18n="about.intro">
-                        個人でゲーム開発を行っているインディーゲーム開発者です。<br>
-                        UnityやUnreal Engineを使用してゲーム制作を行っています。
-                    </p>
-                    <div class="about-details">
-                        <div class="about-card">
-                            <h3 data-i18n="about.tools">Tools</h3>
-                            <ul class="skill-list">
-                                <li>Unity</li>
-                                <li>Visual Studio</li>
-                                <li>CLIP STUDIO PAINT</li>
-                                <li>Aseprite</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -140,6 +114,34 @@
             <h2 class="section-title" data-i18n="illustrations.title">Illustrations</h2>
             <div class="gallery-grid" id="gallery-grid">
                 <!-- Illustrations will be loaded dynamically from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+            <div class="contact-content">
+                <p class="contact-intro" data-i18n="contact.intro">
+                    お仕事のご依頼・ご相談はお気軽にご連絡ください。
+                </p>
+                <div class="contact-methods">
+                    <a href="https://x.com/engawa_gamedev" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        <span class="contact-card-label">X (Twitter)</span>
+                        <span class="contact-card-handle">@engawa_gamedev</span>
+                    </a>
+                    <a href="https://www.youtube.com/@-Engawa-gamedev" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        <span class="contact-card-label">YouTube</span>
+                        <span class="contact-card-handle">@-Engawa-gamedev</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

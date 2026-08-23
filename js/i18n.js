@@ -10,16 +10,12 @@ const I18n = (function () {
     const translations = {
         ja: {
             // Nav
-            'nav.about': 'About',
             'nav.games': 'Games',
             'nav.illustrations': 'Illustrations',
+            'nav.contact': 'Contact',
             // Hero
             'hero.subtitle': 'Indie Game Developer',
             'hero.scroll': '下へスクロール',
-            // About
-            'about.title': 'About',
-            'about.intro': '個人でゲーム開発を行っているインディーゲーム開発者です。\nUnityやUnreal Engineを使用してゲーム制作を行っています。',
-            'about.tools': 'Tools',
             // Games
             'games.title': 'Games',
             'games.viewDetail': '詳細を見る',
@@ -30,25 +26,24 @@ const I18n = (function () {
             'modal.period': '開発期間',
             // Illustrations
             'illustrations.title': 'Illustrations',
+            // Contact
+            'contact.title': 'Contact',
+            'contact.intro': 'お仕事のご依頼・ご相談はお気軽にご連絡ください。',
             // Footer
             'footer.tagline': 'Indie Game Developer',
             'footer.policy': 'ポリシー・注意書き',
-            // Gallery
+            // Loading
             'gallery.loading': 'イラストを読み込み中...',
             'games.loading': '作品を読み込み中...',
         },
         en: {
             // Nav
-            'nav.about': 'About',
             'nav.games': 'Games',
             'nav.illustrations': 'Illustrations',
+            'nav.contact': 'Contact',
             // Hero
             'hero.subtitle': 'Indie Game Developer',
             'hero.scroll': 'Scroll down',
-            // About
-            'about.title': 'About',
-            'about.intro': 'An indie game developer creating games independently.\nDeveloping games using Unity and Unreal Engine.',
-            'about.tools': 'Tools',
             // Games
             'games.title': 'Games',
             'games.viewDetail': 'View Details',
@@ -59,10 +54,13 @@ const I18n = (function () {
             'modal.period': 'Dev Period',
             // Illustrations
             'illustrations.title': 'Illustrations',
+            // Contact
+            'contact.title': 'Contact',
+            'contact.intro': 'Feel free to reach out for business inquiries or collaboration.',
             // Footer
             'footer.tagline': 'Indie Game Developer',
             'footer.policy': 'Policy & Notices',
-            // Gallery
+            // Loading
             'gallery.loading': 'Loading illustrations...',
             'games.loading': 'Loading works...',
         }

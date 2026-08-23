@@ -1,7 +1,7 @@
 /**
  * Works/Games Module
  * Handles loading and displaying game works from JSON
- * Supports i18n via I18n module
+ * Supports i18n via I18n module, video thumbnails, and vertical layout
  */
 
 const Works = (function () {
@@ -52,29 +52,44 @@ const Works = (function () {
         return `<div class="game-card-social">${items.join('')}</div>`;
     }
 
-    // Render games grid
+    // Build thumbnail media (video or image)
+    function buildThumbnailMedia(game, title) {
+        if (game.video) {
+            return `
+                <video autoplay muted loop playsinline preload="metadata" poster="${game.thumbnail}">
+                    <source src="${game.video}" type="video/mp4">
+                    <img src="${game.thumbnail}" alt="${title}" loading="lazy">
+                </video>`;
+        }
+        return `<img src="${game.thumbnail}" alt="${title}" loading="lazy">`;
+    }
+
+    // Render games grid (vertical full-width layout)
     function renderGames() {
         const grid = document.getElementById('games-grid');
         if (!grid) return;
 
         grid.innerHTML = gamesData.map((game, index) => {
             const title = I18n.localizeField(game, 'title');
+            const description = I18n.localizeField(game, 'description');
             const status = I18n.localizeField(game, 'status');
             const genre = I18n.localizeField(game, 'genre');
 
             return `
             <article class="game-card" data-game-index="${index}">
-                <div class="game-card-image">
-                    <img src="${game.thumbnail}" alt="${title}" loading="lazy">
+                <div class="game-card-media">
+                    ${buildThumbnailMedia(game, title)}
                     <div class="game-card-overlay">
                         <span>${I18n.t('games.viewDetail')}</span>
                     </div>
                 </div>
                 <div class="game-card-content">
                     <h3 class="game-card-title">${title}</h3>
+                    <p class="game-card-description">${description}</p>
                     ${game.period ? `<div class="game-card-period">${game.period}</div>` : ''}
                     <div class="game-card-meta">
                         <span class="game-card-tag">${game.engine}</span>
+                        <span class="game-card-tag">${genre}</span>
                         <span class="game-card-status">${status}</span>
                     </div>
                     ${buildCardLinks(game.links)}

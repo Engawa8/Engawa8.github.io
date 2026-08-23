@@ -1,6 +1,7 @@
 /**
  * Gallery Module
  * Handles illustration gallery with lightbox functionality
+ * Also sets hero background to the latest illustration
  */
 
 const Gallery = (function () {
@@ -19,6 +20,10 @@ const Gallery = (function () {
                 const dateB = new Date(b.date || 0);
                 return dateB - dateA;
             });
+
+            // Set hero background to latest illustration
+            setHeroBackground();
+
             renderGallery();
         } catch (error) {
             console.error('Failed to load illustrations data:', error);
@@ -26,6 +31,18 @@ const Gallery = (function () {
             if (grid) {
                 grid.innerHTML = '<p style="text-align: center; color: var(--color-text-muted);">イラストを読み込み中...</p>';
             }
+        }
+    }
+
+    // Set hero background to the latest illustration
+    function setHeroBackground() {
+        if (illustrationsData.length === 0) return;
+        const latest = illustrationsData[0]; // already sorted newest first
+        const heroBg = document.getElementById('hero-bg');
+        if (heroBg && latest.image) {
+            heroBg.style.backgroundImage = `url('${latest.image}')`;
+            heroBg.style.backgroundSize = 'cover';
+            heroBg.style.backgroundPosition = 'center';
         }
     }
 

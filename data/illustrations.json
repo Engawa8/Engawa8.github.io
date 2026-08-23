@@ -31,6 +31,22 @@
             "thumbnail": "images/illustrations/DeciTwelveillust2.jpg",
             "category": "オリジナル",
             "date": "2026-05-19"
+        },
+        {
+            "id": "erroreclipse1",
+            "title": "ErrorEclipse1",
+            "image": "images/illustrations/ErrorEclipse1.jpg",
+            "thumbnail": "images/illustrations/ErrorEclipse1.jpg",
+            "category": "オリジナル",
+            "date": "2026-08-22"
+        },
+        {
+            "id": "erroreclipse2",
+            "title": "ErrorEclipse2",
+            "image": "images/illustrations/ErrorEclipse2.jpg",
+            "thumbnail": "images/illustrations/ErrorEclipse2.jpg",
+            "category": "オリジナル",
+            "date": "2026-08-23"
         }
     ]
 }
