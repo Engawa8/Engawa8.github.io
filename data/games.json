@@ -2,7 +2,8 @@
     "games": [
         {
             "id": "error-eclipse",
-            "title": "Error Eclipse",
+            "title": "Error Eclipse\nエラー・エクリプス",
+            "title_en": "Error Eclipse",
             "description": "2Dアクションの核を見直した、「奪う」を軸とするアクションゲーム。覚えるのは簡単、極めるのは至難の奥深さを目指し鋭意開発中。",
             "description_en": "A 2D action game centered on the concept of \"stealing,\" rethinking the core of the genre. Currently in active development, aiming for depth that is easy to learn but hard to master.",
             "fullDescription": "2Dアクションの核を見直した、「奪う」を軸とするアクションゲーム。覚えるのは簡単、極めるのは至難の奥深さを目指し鋭意開発中。",
@@ -29,7 +30,8 @@
         },
         {
             "id": "deci-twelve",
-            "title": "Deci Twelve",
+            "title": "Deci Twelve\nデシ・トゥウェルヴ",
+            "title_en": "Deci Twelve",
             "description": "6×8の盤面で戦う、はさみ将棋のルールをベースとしたタクティカルRPG。ミストウォーカー社が手掛ける\"テラバトル\"のインスパイア作品。",
             "description_en": "A tactical RPG played on a 6x8 board, based on the rules of Hasami Shogi (sandwich chess). An homage inspired by Mistwalker's \"Terra Battle.\"",
             "fullDescription": "6×8の盤面で戦う、はさみ将棋のルールをベースとしたタクティカルRPG。ミストウォーカー社が手掛ける\"テラバトル\"のインスパイア作品。",

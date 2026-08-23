@@ -16,6 +16,16 @@ const Works = (function () {
         unityroom: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L1.5 6v12L12 24l10.5-6V6L12 0zm0 2.25L20.25 7.5v9L12 21.75 3.75 16.5v-9L12 2.25zM12 6L6 9.5v5L12 18l6-3.5v-5L12 6z"/></svg>`
     };
 
+    // Helper to format title with optional subtitle on newline
+    function formatTitle(rawTitle) {
+        if (!rawTitle) return '';
+        if (rawTitle.includes('\n')) {
+            const parts = rawTitle.split('\n');
+            return `${parts[0]}<span class="game-title-sub">${parts.slice(1).join('<br>')}</span>`;
+        }
+        return rawTitle;
+    }
+
     // Load games data from JSON
     async function loadGames() {
         try {
@@ -54,14 +64,15 @@ const Works = (function () {
 
     // Build thumbnail media (video or image)
     function buildThumbnailMedia(game, title) {
+        const cleanTitle = (title || '').replace(/\n/g, ' ');
         if (game.video) {
             return `
                 <video autoplay muted loop playsinline preload="metadata" poster="${game.thumbnail}">
                     <source src="${game.video}" type="video/mp4">
-                    <img src="${game.thumbnail}" alt="${title}" loading="lazy">
+                    <img src="${game.thumbnail}" alt="${cleanTitle}" loading="lazy">
                 </video>`;
         }
-        return `<img src="${game.thumbnail}" alt="${title}" loading="lazy">`;
+        return `<img src="${game.thumbnail}" alt="${cleanTitle}" loading="lazy">`;
     }
 
     // Get list of media items for the modal slider (video first, then screenshots)
@@ -87,7 +98,8 @@ const Works = (function () {
         if (!grid) return;
 
         grid.innerHTML = gamesData.map((game, index) => {
-            const title = I18n.localizeField(game, 'title');
+            const rawTitle = I18n.localizeField(game, 'title');
+            const titleHtml = formatTitle(rawTitle);
             const description = I18n.localizeField(game, 'description');
             const status = I18n.localizeField(game, 'status');
             const genre = I18n.localizeField(game, 'genre');
@@ -95,13 +107,13 @@ const Works = (function () {
             return `
             <article class="game-card" data-game-index="${index}">
                 <div class="game-card-media">
-                    ${buildThumbnailMedia(game, title)}
+                    ${buildThumbnailMedia(game, rawTitle)}
                     <div class="game-card-overlay">
                         <span>${I18n.t('games.viewDetail')}</span>
                     </div>
                 </div>
                 <div class="game-card-content">
-                    <h3 class="game-card-title">${title}</h3>
+                    <h3 class="game-card-title">${titleHtml}</h3>
                     <p class="game-card-description">${description}</p>
                     ${game.period ? `<div class="game-card-period">${game.period}</div>` : ''}
                     <div class="game-card-meta">
@@ -147,6 +159,9 @@ const Works = (function () {
             nextBtn.style.display = mediaList.length > 1 ? 'flex' : 'none';
         }
 
+        const rawTitle = I18n.localizeField(game, 'title');
+        const cleanTitle = rawTitle.replace(/\n/g, ' ');
+
         // Set slider content (video first, then images)
         slider.innerHTML = mediaList.map(item => {
             if (item.type === 'video') {
@@ -155,13 +170,13 @@ const Works = (function () {
                     <source src="${item.src}" type="video/mp4">
                 </video>`;
             }
-            return `<img src="${item.src}" alt="${I18n.localizeField(game, 'title')} screenshot" loading="lazy">`;
+            return `<img src="${item.src}" alt="${cleanTitle} screenshot" loading="lazy">`;
         }).join('');
 
         updateSlider();
 
         // Set title and description
-        title.textContent = I18n.localizeField(game, 'title');
+        title.innerHTML = formatTitle(rawTitle);
         description.textContent = I18n.localizeField(game, 'fullDescription') || I18n.localizeField(game, 'description');
 
         // Set meta info
