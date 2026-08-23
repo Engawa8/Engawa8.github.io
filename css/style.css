@@ -711,14 +711,14 @@ button {
 }
 
 .contact-content {
-    max-width: 900px;
+    max-width: 680px;
     margin: 0 auto;
     text-align: center;
 }
 
 .contact-methods {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     justify-content: center;
 }
