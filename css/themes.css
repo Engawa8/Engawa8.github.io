@@ -18,6 +18,10 @@
     --color-accent-hover: #3db892;
     --color-accent-light: rgba(78, 204, 163, 0.1);
     
+    --color-info: #0284c7;
+    --color-info-light: rgba(2, 132, 199, 0.1);
+    --color-info-border: rgba(2, 132, 199, 0.3);
+    
     --color-border: #dee2e6;
     --color-border-light: #e9ecef;
     
@@ -60,6 +64,10 @@
     --color-accent: #4ecca3;
     --color-accent-hover: #6ee7b7;
     --color-accent-light: rgba(78, 204, 163, 0.15);
+    
+    --color-info: #38bdf8;
+    --color-info-light: rgba(56, 189, 248, 0.15);
+    --color-info-border: rgba(56, 189, 248, 0.35);
     
     --color-border: #2d2d44;
     --color-border-light: #252540;

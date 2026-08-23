@@ -193,7 +193,7 @@ const Works = (function () {
             </div>
             <div class="modal-meta-item">
                 <span class="modal-meta-label">${I18n.t('modal.status')}</span>
-                <span class="modal-meta-value ${!isReleased ? 'status-dev-text' : ''}">${I18n.localizeField(game, 'status')}</span>
+                <span class="modal-meta-value ${!isReleased ? 'status-dev-text' : 'status-released-text'}">${I18n.localizeField(game, 'status')}</span>
             </div>
         `;
         if (game.period) {

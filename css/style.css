@@ -573,13 +573,29 @@ button {
 }
 
 .game-card-status.status-released {
-    background: var(--color-bg-tertiary);
-    color: var(--color-text-muted);
-    border: 1px solid var(--color-border-light);
+    background: rgba(0, 180, 216, 0.12);
+    color: #0284c7;
+    border: 1px solid rgba(0, 180, 216, 0.35);
+}
+
+[data-theme="dark"] .game-card-status.status-released {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.35);
 }
 
 .status-dev-text {
     color: #ff6b35;
+    font-weight: 600;
+}
+
+.status-released-text {
+    color: #0284c7;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .status-released-text {
+    color: #38bdf8;
     font-weight: 600;
 }
 
