@@ -73,8 +73,8 @@
                 "images/games/mahobutsu/screenshot1.png"
             ],
             "engine": "Unity",
-            "genre": "アクション",
-            "genre_en": "Action",
+            "genre": "3Dアクション",
+            "genre_en": "3D Action",
             "status": "リリース済み",
             "status_en": "Released",
             "period": "2021.8 - 2022.3",
