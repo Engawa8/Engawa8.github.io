@@ -103,6 +103,7 @@ const Works = (function () {
             const description = I18n.localizeField(game, 'description');
             const status = I18n.localizeField(game, 'status');
             const genre = I18n.localizeField(game, 'genre');
+            const isReleased = game.status === 'リリース済み' || game.status_en === 'Released';
 
             return `
             <article class="game-card" data-game-index="${index}">
@@ -119,7 +120,7 @@ const Works = (function () {
                     <div class="game-card-meta">
                         <span class="game-card-tag">${game.engine}</span>
                         <span class="game-card-tag">${genre}</span>
-                        <span class="game-card-status">${status}</span>
+                        <span class="game-card-status ${isReleased ? 'status-released' : 'status-dev'}">${status}</span>
                     </div>
                     ${buildCardLinks(game.links)}
                 </div>
@@ -161,6 +162,7 @@ const Works = (function () {
 
         const rawTitle = I18n.localizeField(game, 'title');
         const cleanTitle = rawTitle.replace(/\n/g, ' ');
+        const isReleased = game.status === 'リリース済み' || game.status_en === 'Released';
 
         // Set slider content (video first, then images)
         slider.innerHTML = mediaList.map(item => {
@@ -191,7 +193,7 @@ const Works = (function () {
             </div>
             <div class="modal-meta-item">
                 <span class="modal-meta-label">${I18n.t('modal.status')}</span>
-                <span class="modal-meta-value">${I18n.localizeField(game, 'status')}</span>
+                <span class="modal-meta-value ${isReleased ? 'status-released-text' : ''}">${I18n.localizeField(game, 'status')}</span>
             </div>
         `;
         if (game.period) {
