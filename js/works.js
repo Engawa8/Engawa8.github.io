@@ -64,6 +64,23 @@ const Works = (function () {
         return `<img src="${game.thumbnail}" alt="${title}" loading="lazy">`;
     }
 
+    // Get list of media items for the modal slider (video first, then screenshots)
+    function getGameMediaList(game) {
+        if (!game) return [];
+        const mediaList = [];
+        if (game.video) {
+            mediaList.push({ type: 'video', src: game.video, poster: game.thumbnail });
+        }
+        if (game.screenshots && game.screenshots.length > 0) {
+            game.screenshots.forEach(src => {
+                mediaList.push({ type: 'image', src });
+            });
+        } else if (!game.video) {
+            mediaList.push({ type: 'image', src: game.thumbnail });
+        }
+        return mediaList;
+    }
+
     // Render games grid (vertical full-width layout)
     function renderGames() {
         const grid = document.getElementById('games-grid');
@@ -119,15 +136,27 @@ const Works = (function () {
         const description = document.getElementById('modal-description');
         const meta = document.getElementById('modal-meta');
         const links = document.getElementById('modal-links');
+        const prevBtn = modal.querySelector('.slider-prev');
+        const nextBtn = modal.querySelector('.slider-next');
 
-        // Set slider images
-        const screenshots = game.screenshots && game.screenshots.length > 0
-            ? game.screenshots
-            : [game.thumbnail];
+        const mediaList = getGameMediaList(game);
 
-        slider.innerHTML = screenshots.map(src =>
-            `<img src="${src}" alt="${I18n.localizeField(game, 'title')} screenshot" loading="lazy">`
-        ).join('');
+        // Hide/show navigation buttons if only 1 item
+        if (prevBtn && nextBtn) {
+            prevBtn.style.display = mediaList.length > 1 ? 'flex' : 'none';
+            nextBtn.style.display = mediaList.length > 1 ? 'flex' : 'none';
+        }
+
+        // Set slider content (video first, then images)
+        slider.innerHTML = mediaList.map(item => {
+            if (item.type === 'video') {
+                return `
+                <video autoplay muted loop playsinline controls poster="${item.poster}">
+                    <source src="${item.src}" type="video/mp4">
+                </video>`;
+            }
+            return `<img src="${item.src}" alt="${I18n.localizeField(game, 'title')} screenshot" loading="lazy">`;
+        }).join('');
 
         updateSlider();
 
@@ -194,30 +223,37 @@ const Works = (function () {
         const modal = document.getElementById('game-modal');
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        
+        // Pause any video playing inside the modal
+        const videos = modal.querySelectorAll('video');
+        videos.forEach(v => v.pause());
+
         currentGameData = null;
     }
 
     // Update slider position
     function updateSlider() {
         const slider = document.getElementById('modal-slider');
-        const images = slider.querySelectorAll('img');
-        images.forEach((img, index) => {
-            img.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+        const items = slider.querySelectorAll('img, video');
+        items.forEach((item) => {
+            item.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
         });
     }
 
     // Navigate slider
     function nextSlide() {
         if (!currentGameData) return;
-        const screenshots = currentGameData.screenshots || [currentGameData.thumbnail];
-        currentSlideIndex = (currentSlideIndex + 1) % screenshots.length;
+        const mediaList = getGameMediaList(currentGameData);
+        if (mediaList.length <= 1) return;
+        currentSlideIndex = (currentSlideIndex + 1) % mediaList.length;
         updateSlider();
     }
 
     function prevSlide() {
         if (!currentGameData) return;
-        const screenshots = currentGameData.screenshots || [currentGameData.thumbnail];
-        currentSlideIndex = (currentSlideIndex - 1 + screenshots.length) % screenshots.length;
+        const mediaList = getGameMediaList(currentGameData);
+        if (mediaList.length <= 1) return;
+        currentSlideIndex = (currentSlideIndex - 1 + mediaList.length) % mediaList.length;
         updateSlider();
     }
 

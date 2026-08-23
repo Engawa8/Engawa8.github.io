@@ -782,11 +782,13 @@ button {
     overflow: hidden;
 }
 
-.modal-slider img {
+.modal-slider img,
+.modal-slider video {
     width: 100%;
     height: 100%;
     object-fit: contain;
     flex-shrink: 0;
+    transition: transform var(--transition-normal);
 }
 
 .slider-btn {

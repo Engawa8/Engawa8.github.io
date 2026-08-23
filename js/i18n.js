@@ -28,7 +28,6 @@ const I18n = (function () {
             'illustrations.title': 'Illustrations',
             // Contact
             'contact.title': 'Contact',
-            'contact.intro': 'お仕事のご依頼・ご相談はお気軽にご連絡ください。',
             // Footer
             'footer.tagline': 'Indie Game Developer',
             'footer.policy': 'ポリシー・注意書き',
@@ -56,7 +55,6 @@ const I18n = (function () {
             'illustrations.title': 'Illustrations',
             // Contact
             'contact.title': 'Contact',
-            'contact.intro': 'Feel free to reach out for business inquiries or collaboration.',
             // Footer
             'footer.tagline': 'Indie Game Developer',
             'footer.policy': 'Policy & Notices',
