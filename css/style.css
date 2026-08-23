@@ -555,14 +555,14 @@ button {
     gap: 0.35rem;
 }
 
-.game-card-status.status-released {
+.game-card-status.status-dev {
     background: rgba(255, 107, 53, 0.15);
     color: #ff6b35;
     border: 1px solid rgba(255, 107, 53, 0.4);
     box-shadow: 0 0 10px rgba(255, 107, 53, 0.15);
 }
 
-.game-card-status.status-released::before {
+.game-card-status.status-dev::before {
     content: '';
     display: inline-block;
     width: 6px;
@@ -572,13 +572,13 @@ button {
     box-shadow: 0 0 6px #ff6b35;
 }
 
-.game-card-status.status-dev {
+.game-card-status.status-released {
     background: var(--color-bg-tertiary);
     color: var(--color-text-muted);
     border: 1px solid var(--color-border-light);
 }
 
-.status-released-text {
+.status-dev-text {
     color: #ff6b35;
     font-weight: 600;
 }
