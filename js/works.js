@@ -115,7 +115,7 @@ const Works = (function () {
                 </div>
                 <div class="game-card-content">
                     <h3 class="game-card-title">${titleHtml}</h3>
-                    <p class="game-card-description">${description}</p>
+                    <p class="game-card-description">${(description || '').replace(/\n/g, '<br>')}</p>
                     ${game.period ? `<div class="game-card-period">${game.period}</div>` : ''}
                     <div class="game-card-meta">
                         <span class="game-card-tag">${game.engine}</span>
@@ -179,7 +179,7 @@ const Works = (function () {
 
         // Set title and description
         title.innerHTML = formatTitle(rawTitle);
-        description.textContent = I18n.localizeField(game, 'fullDescription') || I18n.localizeField(game, 'description');
+        description.innerHTML = (I18n.localizeField(game, 'fullDescription') || I18n.localizeField(game, 'description') || '').replace(/\n/g, '<br>');
 
         // Set meta info
         let metaHTML = `
