@@ -47,14 +47,14 @@ const Works = (function () {
         if (!links) return '';
 
         const items = [];
+        if (links.unityroom) {
+            items.push(`<a href="${links.unityroom}" target="_blank" rel="noopener noreferrer" class="game-card-social-link" aria-label="UnityRoom" onclick="event.stopPropagation();">${ICONS.unityroom}</a>`);
+        }
         if (links.x) {
             items.push(`<a href="${links.x}" target="_blank" rel="noopener noreferrer" class="game-card-social-link" aria-label="X (Twitter)" onclick="event.stopPropagation();">${ICONS.x}</a>`);
         }
         if (links.youtube) {
             items.push(`<a href="${links.youtube}" target="_blank" rel="noopener noreferrer" class="game-card-social-link" aria-label="YouTube" onclick="event.stopPropagation();">${ICONS.youtube}</a>`);
-        }
-        if (links.unityroom) {
-            items.push(`<a href="${links.unityroom}" target="_blank" rel="noopener noreferrer" class="game-card-social-link" aria-label="UnityRoom" onclick="event.stopPropagation();">${ICONS.unityroom}</a>`);
         }
 
         if (items.length === 0) return '';
@@ -209,14 +209,14 @@ const Works = (function () {
         // Set links
         const linkButtons = [];
         if (game.links) {
+            if (game.links.unityroom) {
+                linkButtons.push(`<a href="${game.links.unityroom}" target="_blank" rel="noopener noreferrer" class="modal-link">${ICONS.unityroom} UnityRoom</a>`);
+            }
             if (game.links.x) {
                 linkButtons.push(`<a href="${game.links.x}" target="_blank" rel="noopener noreferrer" class="modal-link secondary">${ICONS.x} X</a>`);
             }
             if (game.links.youtube) {
                 linkButtons.push(`<a href="${game.links.youtube}" target="_blank" rel="noopener noreferrer" class="modal-link secondary">${ICONS.youtube} YouTube</a>`);
-            }
-            if (game.links.unityroom) {
-                linkButtons.push(`<a href="${game.links.unityroom}" target="_blank" rel="noopener noreferrer" class="modal-link">${ICONS.unityroom} UnityRoom</a>`);
             }
             if (game.links.steam) {
                 linkButtons.push(`<a href="${game.links.steam}" target="_blank" rel="noopener noreferrer" class="modal-link">Steam</a>`);
