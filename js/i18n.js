@@ -15,7 +15,7 @@ const I18n = (function () {
             'nav.contact': 'Contact',
             // Hero
             'hero.subtitle': 'Indie Game Developer',
-            'hero.catchphrase': '「こんなゲームあったらいいな」を作ってます。',
+            'hero.catchphrase': '自分の中の「あったらいいな」を作ってます。',
             'hero.scroll': '下へスクロール',
             // Games
             'games.title': 'Games',
@@ -43,7 +43,7 @@ const I18n = (function () {
             'nav.contact': 'Contact',
             // Hero
             'hero.subtitle': 'Indie Game Developer',
-            'hero.catchphrase': 'Creating games I wish existed.',
+            'hero.catchphrase': 'Creating what I wish existed.',
             'hero.scroll': 'Scroll down',
             // Games
             'games.title': 'Games',
